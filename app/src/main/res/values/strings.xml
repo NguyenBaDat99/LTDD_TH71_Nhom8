@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Dictionary</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_tra_cuu">TraCuu</string>
+
+    <string-array name="list_translate">
+        <item>Anh-Việt</item>
+        <item>Anh-Anh</item>
+        <item>Việt-Anh</item>
+    </string-array>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_tracuu"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Tra cứu"/>
+    <item
+        android:id="@+id/nav_luyendoc"
+        android:icon="@drawable/ic_library_books_black_24dp"
+        android:title="Luyện đọc"/>
+    <item
+        android:id="@+id/nav_luyennghe"
+        android:icon="@drawable/ic_headset_black_24dp"
+        android:title="Luyện nghe"/>
+
+</menu>
