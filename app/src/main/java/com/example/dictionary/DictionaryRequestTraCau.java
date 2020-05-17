@@ -1,6 +1,5 @@
 package com.example.dictionary;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
@@ -16,25 +15,21 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
 public class DictionaryRequestTraCau extends AsyncTask<String, Integer, String>{
-    Context context;
+
     TextView showDef;
 
-    DictionaryRequestTraCau(Context context, TextView tV){
-        this.context = context;
+    public DictionaryRequestTraCau(TextView tV){
         showDef = tV;
     }
+
     @Override
     protected String doInBackground(String... params) {
 
-        //TODO: replace with your own app id and app key
-//        final String app_id = "WBBcwnwQpV89";
-//        final String app_key = "WBBcwnwQpV89";
+        // replace with your own app id and app key
         try {
             URL url = new URL(params[0]);
             HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setRequestProperty("Accept","application/json");
-//            urlConnection.setRequestProperty("app_id",app_id);
-//            urlConnection.setRequestProperty("app_key",app_key);
 
             // read the output from the server
             BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));

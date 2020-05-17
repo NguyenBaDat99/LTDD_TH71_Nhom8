@@ -19,18 +19,16 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class DictionaryRequest extends AsyncTask<String, Integer, String> {
 
-    Context context;
     TextView showDef;
 
-    DictionaryRequest(Context context, TextView tV){
-        this.context = context;
+    public DictionaryRequest(TextView tV){
         showDef = tV;
     }
 
     @Override
     protected String doInBackground(String... params) {
 
-        //TODO: replace with your own app id and app key
+        // replace with your own app id and app key
         final String app_id = "fd92b232";
         final String app_key = "807a29710154fbacd4c74a3db3921ca4";
         try {
@@ -81,6 +79,7 @@ public class DictionaryRequest extends AsyncTask<String, Integer, String> {
 
             def = d.getString(0);
             showDef.setText("Meaning: " + def);
+//            ketQuaDich = def;
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -88,5 +87,7 @@ public class DictionaryRequest extends AsyncTask<String, Integer, String> {
 
         Log.v("Result of Dictionary", "onPostExecute " + result);
     }
+
+
 }
 
