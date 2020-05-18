@@ -1,6 +1,8 @@
 package com.example.dictionary;
 
 import android.content.Context;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
@@ -11,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
@@ -20,9 +23,11 @@ import javax.net.ssl.HttpsURLConnection;
 public class DictionaryRequest extends AsyncTask<String, Integer, String> {
 
     TextView showDef;
+    MediaPlayer mediaPlayer;
 
-    public DictionaryRequest(TextView tV){
+    public DictionaryRequest(TextView tV, MediaPlayer mediaPlayer){
         showDef = tV;
+        this.mediaPlayer = mediaPlayer;
     }
 
     @Override
@@ -60,7 +65,6 @@ public class DictionaryRequest extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        String def;
         try {
             JSONObject js = new JSONObject(result);
             JSONArray results = js.getJSONArray("results");
@@ -71,17 +75,35 @@ public class DictionaryRequest extends AsyncTask<String, Integer, String> {
             JSONObject entries = laArray.getJSONObject(0);
             JSONArray e = entries.getJSONArray("entries");
 
+            JSONObject pronunciation = laArray.getJSONObject(0);
+            JSONArray pro = pronunciation.getJSONArray("pronunciations");
+
+            JSONObject proSpell = pro.getJSONObject(0);
+            String spell = proSpell.getString("phoneticSpelling");
+            String urlAudioFile = proSpell.getString("audioFile");
+
+            mediaPlayer.setDataSource(urlAudioFile);
+            mediaPlayer.prepare();
+
             JSONObject jsonObject = e.getJSONObject(0);
             JSONArray sensesArray = jsonObject.getJSONArray("senses");
 
-            JSONObject de = sensesArray.getJSONObject(0);
-            JSONArray d = de.getJSONArray("definitions");
+            JSONObject deOJ = sensesArray.getJSONObject(0);
+            JSONArray de = deOJ.getJSONArray("definitions");
+            String def = de.getString(0);
 
-            def = d.getString(0);
-            showDef.setText("Meaning: " + def);
+            JSONArray ex = deOJ.getJSONArray("examples");
+            JSONObject example1 = ex.getJSONObject(0);
+
+            String ex1 = example1.getString("text");
+            showDef.setText("● Phát âm: " + spell +"\n" +
+                            "● Định nghĩa: \n - " + def +"\n"+
+                            "● Ví dụ: \n - " + ex1 + "\n"
+                            );
+//            showDef.setText("Definitions: " + def);
 //            ketQuaDich = def;
 
-        } catch (JSONException e) {
+        } catch (JSONException | IOException e) {
             e.printStackTrace();
         }
 

@@ -1,9 +1,12 @@
 package com.example.dictionary.fragment;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -26,6 +29,9 @@ public class TraCuuFragment extends Fragment {
     RadioGroup radioCachTraCuu;
     SearchView searchView;
     String url; //Đường dẫn cho api
+    Button btnPlay;
+
+    MediaPlayer mediaPlayer = new MediaPlayer();
 
     @Nullable
     @Override
@@ -38,7 +44,7 @@ public class TraCuuFragment extends Fragment {
         radioCachTraCuu.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // checkedId is the RadioButton selected
-                tuCanTra  = searchView.getQuery().toString();
+//                tuCanTra  = searchView.getQuery().toString();
                 switch(checkedId) {
 
                     case R.id.radio_av:{
@@ -62,7 +68,6 @@ public class TraCuuFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                tuCanTra  = searchView.getQuery().toString();
 
                 traTu(cachTraCuu);
 
@@ -74,11 +79,24 @@ public class TraCuuFragment extends Fragment {
             }
         });
 
+        btnPlay = view.findViewById(R.id.btn_play);
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mediaPlayer.start();
+            }
+        });
+
+
+
         return view;
     }
 
     //Hàm tra từ cần dịch và xuất kết quả dịch
     private void traTu(int cachTraCuu) {
+        tuCanTra  = searchView.getQuery().toString();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mediaPlayer.reset();
         switch (cachTraCuu)
         {
             case 0: {
@@ -88,7 +106,7 @@ public class TraCuuFragment extends Fragment {
                 String a = "";
             }break;
             case 1: {
-                DictionaryRequest dR = new DictionaryRequest(txtKetQua);
+                DictionaryRequest dR = new DictionaryRequest(txtKetQua, mediaPlayer);
                 url = dictionaryEntries();
                 dR.execute(url);
             }break;
@@ -99,10 +117,10 @@ public class TraCuuFragment extends Fragment {
     private String dictionaryEntries() {
         final String language = "en-gb";
         final String word = tuCanTra;
-        final String fields = "definitions";
+        final String fields = "";
         final String strictMatch = "false";
         final String word_id = word.toLowerCase();
-        return "https://od-api.oxforddictionaries.com:443/api/v2/entries/" + language + "/" + word_id + "?" + "fields=" + fields + "&strictMatch=" + strictMatch;
+        return "https://od-api.oxforddictionaries.com:443/api/v2/entries/" + language + "/" + word_id + "?" + "&strictMatch=" + strictMatch;
     }
     //Tạo đường dẫn liên kết api TraCau (Anh-Việt)
     private String dictionaryEntriesTraCau() {
