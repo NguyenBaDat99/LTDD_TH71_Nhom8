@@ -1,5 +1,6 @@
 package com.example.dictionary.fragment;
 
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -26,6 +28,8 @@ public class TraCuuFragment extends Fragment {
     int cachTraCuu = 0;  //Cách để tra cứu (0 = Anh-Việt; 1 = Anh-Anh; 2 = Việt-Anh)
     String tuCanTra = ""; //Từ cần tra
 
+    RadioButton rbAnhViet, rbAnhAnh, rbVietAnh;
+
     RadioGroup radioCachTraCuu;
     SearchView searchView;
     String url; //Đường dẫn cho api
@@ -40,6 +44,10 @@ public class TraCuuFragment extends Fragment {
 
         txtKetQua = view.findViewById(R.id.txtKetQua);
 
+        rbAnhViet = view.findViewById(R.id.radio_av);
+        rbAnhAnh = view.findViewById(R.id.radio_aa);
+        rbVietAnh = view.findViewById(R.id.radio_va);
+
         radioCachTraCuu = view .findViewById(R.id.radio_dich);
         radioCachTraCuu.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -48,16 +56,29 @@ public class TraCuuFragment extends Fragment {
                 switch(checkedId) {
 
                     case R.id.radio_av:{
+                        rbAnhViet.setTextColor(Color.rgb(98,0,238));
+                        rbAnhAnh.setTextColor(Color.WHITE);
+                        rbVietAnh.setTextColor(Color.WHITE);
+
                         cachTraCuu = 0;
                         traTu(cachTraCuu);
+
                     }
                         break;
                     case R.id.radio_aa:{
+                        rbAnhAnh.setTextColor(Color.rgb(98,0,238));
+                        rbAnhViet.setTextColor(Color.WHITE);
+                        rbVietAnh.setTextColor(Color.WHITE);
+
                         cachTraCuu = 1;
                         traTu(cachTraCuu);
                     }
                         break;
                     case R.id.radio_va:{
+                        rbVietAnh.setTextColor(Color.rgb(98,0,238));
+                        rbAnhAnh.setTextColor(Color.WHITE);
+                        rbAnhViet.setTextColor(Color.WHITE);
+
                         traTu(cachTraCuu);
                     }break;
                 }
