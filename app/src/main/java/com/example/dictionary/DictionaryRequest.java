@@ -1,5 +1,6 @@
 package com.example.dictionary;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -34,8 +35,8 @@ public class DictionaryRequest extends AsyncTask<String, Integer, String> {
     protected String doInBackground(String... params) {
 
         // replace with your own app id and app key
-        final String app_id = "fd92b232";
-        final String app_key = "807a29710154fbacd4c74a3db3921ca4";
+        final String app_id = "9ec1a302";
+        final String app_key = "9f2bfe3b032ed2b3fcd9dc7d8b227fd3";
         try {
             URL url = new URL(params[0]);
             HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
@@ -61,6 +62,7 @@ public class DictionaryRequest extends AsyncTask<String, Integer, String> {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);

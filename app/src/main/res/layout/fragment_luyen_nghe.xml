@@ -1,33 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="0dp"
     android:layout_marginRight="0dp"
     android:background="#000000"
     android:id="@+id/bmp_programme_ll"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView_LuyenNghe"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/bodersearch"
+            android:theme="@style/SearchTextViewTheme"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent"
+            app:queryHint="Tìm kiếm..."
+            app:searchIcon="@drawable/ic_search_gray_24dp" />
+
+
+    </LinearLayout>
 
     <WebView
-        android:id="@+id/videoview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-<!--    <MediaController-->
-<!--        android:id="@+id/media_play"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
-
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--        <VideoView-->
-<!--            android:id="@+id/videoView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
-<!--    </FrameLayout>-->
+        android:id="@+id/webView_YoutubeResult"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
