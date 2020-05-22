@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,9 +10,8 @@
     android:id="@+id/bmp_programme_ll"
     android:orientation="vertical">
 
-
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout_SearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -24,24 +24,84 @@
             android:id="@+id/searchView_LuyenNghe"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/bodersearch"
             android:theme="@style/SearchTextViewTheme"
             app:iconifiedByDefault="false"
             app:queryBackground="@android:color/transparent"
             app:queryHint="Tìm kiếm..."
             app:searchIcon="@drawable/ic_search_gray_24dp" />
-
-
     </LinearLayout>
 
-    <WebView
-        android:id="@+id/webView_YoutubeResult"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/linearLayout_view"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_SearchBar"
+        >
+
+        <LinearLayout
+            android:id="@+id/linearLayout_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btnTed"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/ted_logo"
+                android:text="TED"
+                />
+
+            <Button
+                android:id="@+id/btnBBC"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bbc_logo"
+                android:text="BBC"
+                />
+
+            <Button
+                android:id="@+id/btnYoutube"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/youtube_logo"
+                android:text="Youtube"
+                />
+
+        </LinearLayout>
+
+        <WebView
+            android:id="@+id/webView_YoutubeResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="Suspicious0dp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

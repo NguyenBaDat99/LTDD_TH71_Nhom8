@@ -80,35 +80,41 @@ public class DictionaryRequest extends AsyncTask<String, Integer, String> {
             JSONObject pronunciation = laArray.getJSONObject(0);
             JSONArray pro = pronunciation.getJSONArray("pronunciations");
 
+            //Lấy cách phát âm
+            String spell = "";
             JSONObject proSpell = pro.getJSONObject(0);
-            String spell = proSpell.getString("phoneticSpelling");
-            String urlAudioFile = proSpell.getString("audioFile");
+            spell = "● Phát âm: " +  proSpell.getString("phoneticSpelling");
 
+            //Lấy file audio phát âm
+            String urlAudioFile = proSpell.getString("audioFile");
             mediaPlayer.setDataSource(urlAudioFile);
             mediaPlayer.prepare();
 
             JSONObject jsonObject = e.getJSONObject(0);
             JSONArray sensesArray = jsonObject.getJSONArray("senses");
 
+            //Lấy định nghĩa
+            String def = "";
             JSONObject deOJ = sensesArray.getJSONObject(0);
             JSONArray de = deOJ.getJSONArray("definitions");
-            String def = de.getString(0);
+            def = "● Định nghĩa: \n - " + de.getString(0);
 
-            JSONArray ex = deOJ.getJSONArray("examples");
-            JSONObject example1 = ex.getJSONObject(0);
+            //Lấy ví dụ
+            String ex1 = "";
+            try{
+                JSONArray ex = deOJ.getJSONArray("examples");
+                JSONObject example1 = ex.getJSONObject(0);
+                ex1 =  "● Ví dụ: \n - " + example1.getString("text");
+            }catch(Exception ex){
 
-            String ex1 = example1.getString("text");
-            showDef.setText("● Phát âm: " + spell +"\n" +
-                            "● Định nghĩa: \n - " + def +"\n"+
-                            "● Ví dụ: \n - " + ex1 + "\n"
-                            );
+            }
+            showDef.setText( spell +"\n" + def + "\n" + ex1);
 //            showDef.setText("Definitions: " + def);
 //            ketQuaDich = def;
 
         } catch (JSONException | IOException e) {
             e.printStackTrace();
         }
-
         Log.v("Result of Dictionary", "onPostExecute " + result);
     }
 

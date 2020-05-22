@@ -124,7 +124,6 @@ public class TraCuuFragment extends Fragment {
                 DictionaryRequestTraCau dR = new DictionaryRequestTraCau(txtKetQua);
                 url = dictionaryEntriesTraCau();
                 dR.execute(url);
-                String a = "";
             }break;
             case 1: {
                 DictionaryRequest dR = new DictionaryRequest(txtKetQua, mediaPlayer);
