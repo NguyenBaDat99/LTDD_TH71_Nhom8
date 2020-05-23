@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
-import com.example.dictionary.DictionaryRequestTraCau;
 import com.example.dictionary.DictionaryRequestTraCauYoutube;
 import com.example.dictionary.R;
 
@@ -34,14 +33,14 @@ public class LuyenNgheFragment extends Fragment {
 
     String url_api = "";
 
-    LinearLayout mLinearLayout;
+    LinearLayout mLinearLayout_introBtn;
 
     Button btnTed;
     Button btnBBC;
     Button btnYoutube;
 
-//    int state = 0;
-//    String urlNow = null;
+    Button btnBack;
+    Button btnHome;
 
     @SuppressLint("SetJavaScriptEnabled")
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -52,36 +51,52 @@ public class LuyenNgheFragment extends Fragment {
         btnTed = view.findViewById(R.id.btnTed);
         btnBBC = view.findViewById(R.id.btnBBC);
         btnYoutube = view.findViewById(R.id.btnYoutube);
+        btnBack = view.findViewById(R.id.btn_Back);
+        btnHome = view.findViewById(R.id.btn_Home);
 
         btnTed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLinearLayout.setVisibility(View.GONE);
-                mWebView.setVisibility(View.VISIBLE);
-
                 goToPage("ted.com");
+                mLinearLayout_introBtn.setVisibility(View.GONE);
+                mWebView.setVisibility(View.VISIBLE);
             }
         });
         btnBBC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLinearLayout.setVisibility(View.GONE);
-                mWebView.setVisibility(View.VISIBLE);
-
                 goToPage("bbc.co.uk/learningenglish");
+                mLinearLayout_introBtn.setVisibility(View.GONE);
+                mWebView.setVisibility(View.VISIBLE);
             }
         });
         btnYoutube.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mLinearLayout.setVisibility(View.GONE);
-                mWebView.setVisibility(View.VISIBLE);
-
                 goToPage("youtube.com");
+                mLinearLayout_introBtn.setVisibility(View.GONE);
+                mWebView.setVisibility(View.VISIBLE);
             }
         });
 
-        mLinearLayout = view.findViewById(R.id.linearLayout_intro);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mWebView.goBack();
+            }
+        });
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mWebView.setVisibility(View.GONE);
+                mLinearLayout_introBtn.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+        mLinearLayout_introBtn = view.findViewById(R.id.linearLayout_introButton);
 
         mWebView.setVisibility(View.GONE);
 
@@ -92,7 +107,7 @@ public class LuyenNgheFragment extends Fragment {
             public boolean onQueryTextSubmit(String query) {
                 keyWord = searchView.getQuery().toString();
 
-                mLinearLayout.setVisibility(View.GONE);
+                mLinearLayout_introBtn.setVisibility(View.GONE);
                 mWebView.setVisibility(View.VISIBLE);
 
                 DictionaryRequestTraCauYoutube dR = new DictionaryRequestTraCauYoutube(mWebView, keyWord ,width);
@@ -106,59 +121,6 @@ public class LuyenNgheFragment extends Fragment {
                 return false;
             }
         });
-
-//        if (savedInstanceState != null) {
-//            mWebView.restoreState(savedInstanceState);
-//        } else {
-//            int width = (int) getActivity().getApplicationContext().getResources().getDisplayMetrics().xdpi;
-//            int height = getActivity().getApplicationContext().getResources().getDisplayMetrics().heightPixels;
-//
-//            //TODO: Trang Luyện nghe
-//
-//            String videoStr = "<html><body>" +
-//                    "<iframe width=\"" + width + "\" height=\"250\" src=\"https://www.youtube.com/embed/lTRiuFIWV54?start=320\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "<iframe width=\"" + width + "\" height=\"200\" src=\"https://www.youtube.com/embed/jO2viLEW-1A\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "<iframe width=\"" + width + "\" height=\"200\" src=\"https://www.youtube.com/embed/kOCkne-Bku4\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "</body></html>";
-//
-//            mWebView.setWebViewClient(new WebViewClient() {
-//                @Override
-//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                    return false;
-//                }
-//            });
-//            WebSettings ws = mWebView.getSettings();
-//            ws.setJavaScriptEnabled(true);
-//            mWebView.loadData(videoStr, "text/html", "utf-8");
-//        }
-
-//        if(state == 0){
-//            int width = (int) getActivity().getApplicationContext().getResources().getDisplayMetrics().xdpi;
-//            int height = getActivity().getApplicationContext().getResources().getDisplayMetrics().heightPixels;
-//
-//            //TODO: Trang Luyện nghe
-//
-//            String videoStr = "<html><body>" +
-//                    "<iframe width=\"" + width + "\" height=\"250\" src=\"https://www.youtube.com/embed/lTRiuFIWV54?start=320\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "<iframe width=\"" + width + "\" height=\"200\" src=\"https://www.youtube.com/embed/jO2viLEW-1A\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "<iframe width=\"" + width + "\" height=\"200\" src=\"https://www.youtube.com/embed/kOCkne-Bku4\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "</body></html>";
-//
-//            mWebView.setWebViewClient(new WebViewClient() {
-//                @Override
-//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                    return false;
-//                }
-//            });
-//            WebSettings ws = mWebView.getSettings();
-//            ws.setJavaScriptEnabled(true);
-//            mWebView.loadData(videoStr, "text/html", "utf-8");
-//            urlNow = mWebView.getUrl();
-//            state = 1;
-//        }
-//        mWebView.loadUrl(urlNow);
-
-
         return view;
     }
 
@@ -177,56 +139,8 @@ public class LuyenNgheFragment extends Fragment {
         });
         WebSettings ws = mWebView.getSettings();
         ws.setJavaScriptEnabled(true);
-        mWebView.loadUrl("https://www." + URL + "/");
+        mWebView.loadUrl("https://www." + URL);
     }
 
-//    @Override
-//    public void onActivityCreated(Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        if (savedInstanceState != null) {
-//            mWebView.restoreState(savedInstanceState);
-//        } else {
-//            int width = (int) getActivity().getApplicationContext().getResources().getDisplayMetrics().xdpi;
-//            int height = getActivity().getApplicationContext().getResources().getDisplayMetrics().heightPixels;
-//
-//            //TODO: Trang Luyện nghe
-//
-//            String videoStr = "<html><body>" +
-//                    "<iframe width=\"" + width + "\" height=\"250\" src=\"https://www.youtube.com/embed/lTRiuFIWV54?start=320\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "<iframe width=\"" + width + "\" height=\"200\" src=\"https://www.youtube.com/embed/jO2viLEW-1A\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "<iframe width=\"" + width + "\" height=\"200\" src=\"https://www.youtube.com/embed/kOCkne-Bku4\" frameborder=\"0\" allowfullscreen></iframe>" +
-//                    "</body></html>";
-//
-//            mWebView.setWebViewClient(new WebViewClient() {
-//                @Override
-//                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                    return false;
-//                }
-//            });
-//            WebSettings ws = mWebView.getSettings();
-//            ws.setJavaScriptEnabled(true);
-//            mWebView.loadData(videoStr, "text/html", "utf-8");
-//        }
-//    }
-
-//    @Override
-//    public void onSaveInstanceState(Bundle outState){
-//        mWebView.saveState(outState);
-//        super.onSaveInstanceState(outState);
-//    }
-
-//    @Override
-//    public void onResume(){
-//        mWebView.onResume();
-//        super.onResume();
-//    }
-//
-//    @Override
-//    public void onPause() {
-//        mWebView.onPause();
-//
-//        state = 1;
-//        super.onPause();
-//    }
 
 }

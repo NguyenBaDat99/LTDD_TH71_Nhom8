@@ -75,7 +75,8 @@ public class DictionaryRequestTraCauYoutube extends AsyncTask<String, Integer, S
                 youtube_frame += "<br><iframe width=\"" + width + "\" height=\"250\" src=\"https://www.youtube.com/embed/" + youtube_id + "?start=" + start + "\" frameborder=\"0\" allowfullscreen></iframe><br>";
             }
 
-            String videoStr = "<html><body>" + youtube_frame + "</body></html>";
+            String videoStr = "<html><body>" + youtube_frame + "<br>\n" +
+                    "<script id=\"lbdict_plugin_frame\" type=\"text/javascript\">!function(){var h={s:\"https://dict.laban.vn\",w:380,h:450,hl:2,th:3};function loadScript(t,e){var n=document.createElement(\"script\");n.type=\"text/javascript\",n.readyState?n.onreadystatechange=function(){(\"loaded\"===n.readyState||\"complete\"===n.readyState)&&(n.onreadystatechange=null,e())}:n.onload=function(){e()},n.src=t,q=document.getElementById(\"lbdict_plugin_frame\"),q.parentNode.insertBefore(n,q)}setTimeout(function(){loadScript(\"https://stc-laban.zdn.vn/dictionary/js/plugin/lbdictplugin.frame.min.js\",function(){lbDictPluginFrame.init(h)})},1e3); }();</script></body></html>";
 
             mWebView.setWebViewClient(new WebViewClient() {
                 @Override
@@ -98,7 +99,7 @@ public class DictionaryRequestTraCauYoutube extends AsyncTask<String, Integer, S
                 });
                 WebSettings ws = mWebView.getSettings();
                 ws.setJavaScriptEnabled(true);
-                mWebView.loadUrl("https://www." + keyWord + "/");
+                mWebView.loadUrl("https://www." + keyWord);
                 e.printStackTrace();
             }catch (Exception ex){
 

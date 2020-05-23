@@ -10,6 +10,8 @@
     android:id="@+id/bmp_programme_ll"
     android:orientation="vertical">
 
+
+
     <LinearLayout
         android:id="@+id/linearLayout_SearchBar"
         android:layout_width="match_parent"
@@ -20,9 +22,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Button
+            android:id="@+id/btn_Back"
+            android:layout_width="35dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/ic_arrow_back_black_24dp"
+            />
+        <Button
+            android:id="@+id/btn_Home"
+            android:layout_width="35dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/ic_home_black_24dp"
+            />
+
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView_LuyenNghe"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="55dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="5dp"
@@ -33,6 +54,7 @@
             app:queryBackground="@android:color/transparent"
             app:queryHint="Tìm kiếm..."
             app:searchIcon="@drawable/ic_search_gray_24dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -48,7 +70,7 @@
         >
 
         <LinearLayout
-            android:id="@+id/linearLayout_intro"
+            android:id="@+id/linearLayout_introButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -61,37 +83,37 @@
             <Button
                 android:id="@+id/btnTed"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/ted_logo"
-                android:text="TED"
-                />
-
-            <Button
-                android:id="@+id/btnBBC"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/bbc_logo"
-                android:text="BBC"
+                android:scaleY="1"
                 />
 
             <Button
                 android:id="@+id/btnYoutube"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/youtube_logo"
-                android:text="Youtube"
+                android:scaleY="1"
+                />
+
+            <Button
+                android:id="@+id/btnBBC"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bbc_logo"
+                android:scaleY="1"
                 />
 
         </LinearLayout>
