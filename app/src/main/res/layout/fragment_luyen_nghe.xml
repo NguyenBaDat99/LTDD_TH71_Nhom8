@@ -68,57 +68,65 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_SearchBar"
         >
 
-        <LinearLayout
-            android:id="@+id/linearLayout_introButton"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent">
-
-            <Button
-                android:id="@+id/btnTed"
+            android:layout_height="wrap_content">
+                <LinearLayout
+                android:id="@+id/linearLayout_introButton"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/ted_logo"
-                android:scaleY="1"
-                style="?android:attr/borderlessButtonStyle"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent">
 
-            <Button
-                android:id="@+id/btnYoutube"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/youtube_logo"
-                android:scaleY="1"
-                style="?android:attr/borderlessButtonStyle"
-                />
 
-            <Button
-                android:id="@+id/btnBBC"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/bbc_logo"
-                android:scaleY="1"
-                style="?android:attr/borderlessButtonStyle"
-                />
+                <Button
+                    android:id="@+id/btnTed"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/ted_logo"
+                    android:scaleY="1"
+                    style="?android:attr/borderlessButtonStyle"
+                    />
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btnBBC"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bbc_logo"
+                    android:scaleY="1"
+                    style="?android:attr/borderlessButtonStyle"
+                 />
+
+                <Button
+                    android:id="@+id/btnYoutube"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/youtube_logo"
+                    android:scaleY="1"
+                    style="?android:attr/borderlessButtonStyle"
+                    />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
 
         <WebView
             android:id="@+id/webView_YoutubeResult"

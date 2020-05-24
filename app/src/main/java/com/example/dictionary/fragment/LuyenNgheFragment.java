@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
-import com.example.dictionary.DictionaryRequestTraCauYoutube;
+import com.example.dictionary.DictionaryRequest.DictionaryRequestTraCauYoutube;
 import com.example.dictionary.R;
 
 import android.webkit.WebSettings;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,11 +17,9 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView_TraCuu"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_margin="10dp"
             android:background="@drawable/bodersearch"
             android:clickable="true"
             android:focusable="true"
@@ -29,17 +28,6 @@
             app:queryBackground="@android:color/transparent"
             app:queryHint="Tìm kiếm..."
             app:searchIcon="@drawable/ic_search_gray_24dp" />
-
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="37dp"
-            android:layout_height="37dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="21dp"
-            style="?android:attr/borderlessButtonStyle"
-            android:background="@drawable/ic_volume_up_black_24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radio_dich" />
 
     </LinearLayout>
 
@@ -95,19 +83,50 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:paddingBottom="135dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_TuVaPhienAm"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/txt_KetQua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/txt_TuVaPhienAm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#000000"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio_dich">
+        app:layout_constraintTop_toBottomOf="@+id/radio_dich" />
 
-        <TextView
-            android:id="@+id/txtKetQua"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:textColor="#000000"
-            android:textSize="26sp" />
-    </ScrollView>
+    <Button
+        android:id="@+id/btn_PhatAm"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="37dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/ic_volume_up_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_dich" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
