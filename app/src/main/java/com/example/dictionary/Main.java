@@ -1,5 +1,8 @@
 package com.example.dictionary;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,8 +23,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Main extends AppCompatActivity {
 
-    Toolbar toolbar;
-
     final Fragment fragmentLuyenNghe = new LuyenNgheFragment();
     final Fragment fragmentTraCuu = new TraCuuFragment();
     final Fragment fragmentLuyenDoc = new LuyenDocFragment();
@@ -34,8 +35,9 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+        getSupportActionBar().setElevation(0);
 
         //bottom_Navigation_Menu
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -60,6 +62,11 @@ public class Main extends AppCompatActivity {
         switch (id){
             case R.id.action_settings:
                 return true;
+            case R.id.action_about:
+            {
+                Intent intent = new Intent(Main.this, AboutActivity.class);
+                startActivity(intent);
+            }
         }
         return super.onOptionsItemSelected(item);
     }

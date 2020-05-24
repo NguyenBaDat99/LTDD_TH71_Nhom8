@@ -11,7 +11,6 @@
     android:orientation="vertical">
 
 
-
     <LinearLayout
         android:id="@+id/linearLayout_SearchBar"
         android:layout_width="match_parent"
@@ -90,6 +89,7 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/ted_logo"
                 android:scaleY="1"
+                style="?android:attr/borderlessButtonStyle"
                 />
 
             <Button
@@ -102,6 +102,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/youtube_logo"
                 android:scaleY="1"
+                style="?android:attr/borderlessButtonStyle"
                 />
 
             <Button
@@ -114,6 +115,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/bbc_logo"
                 android:scaleY="1"
+                style="?android:attr/borderlessButtonStyle"
                 />
 
         </LinearLayout>
