@@ -70,7 +70,10 @@ public class DictionaryRequestOxfordPhienAm extends AsyncTask<String, Integer, S
             JSONObject lEntries = results.getJSONObject(0);
             JSONArray laArray = lEntries.getJSONArray("lexicalEntries");
 
-            JSONObject pronunciation = laArray.getJSONObject(0);
+            JSONObject entries = laArray.getJSONObject(0);
+            JSONArray en = entries.getJSONArray("entries");
+
+            JSONObject pronunciation = en.getJSONObject(0);
             JSONArray pro = pronunciation.getJSONArray("pronunciations");
 
             //Lấy cách phát âm

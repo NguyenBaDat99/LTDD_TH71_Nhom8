@@ -80,10 +80,37 @@
             android:textSize="20sp" />
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/txt_TuVaPhienAm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingTop="4dp"
+        android:paddingLeft="7dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="?attr/textcolor"
+        android:textSize="26sp"
+        android:background="?attr/cardbackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_dich" />
+
+    <Button
+        android:id="@+id/btn_PhatAm"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="37dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:background="?attr/volumeIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_dich" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="136dp"
         android:background="?attr/cardbackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,42 +136,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="7dp"
-                android:text="HEllo"
                 android:textColor="?attr/textcolor"
                 android:textSize="24sp" />
         </ScrollView>
 
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/txt_TuVaPhienAm"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingTop="4dp"
-        android:paddingLeft="7dp"
-        android:layout_marginBottom="4dp"
-        android:textColor="?attr/textcolor"
-        android:text="HEllo Wod"
-        android:textSize="26sp"
-        android:background="?attr/cardbackground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio_dich" />
-
-    <Button
-        android:id="@+id/btn_PhatAm"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="37dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:background="?attr/volumeIcon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio_dich" />
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,9 +29,9 @@
         <item name="colorPrimaryDark">#101010</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundcolor">#202020</item>
-        <item name="cardbackground">@color/back</item>
-        <item name="textcolor">#E4E4E4</item>
-        <item name="navigationbackground">#989898</item>
+        <item name="cardbackground">#454545</item>
+        <item name="textcolor">@color/white</item>
+        <item name="navigationbackground">#202020</item>
         <item name="navigationItemSelected">@drawable/nav_check_uncheck_darkmode</item>
         <item name="buttoncolor">@color/colorPrimary</item>
         <item name="searchbackground">@drawable/bg_searchview_selector_darkmode</item>
