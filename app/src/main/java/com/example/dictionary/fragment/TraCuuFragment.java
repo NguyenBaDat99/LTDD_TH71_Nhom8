@@ -57,9 +57,9 @@ public class TraCuuFragment extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch(checkedId) {
                     case R.id.radio_av:{
-                        rbAnhViet.setTextColor(Color.rgb(98,0,238));
-                        rbAnhAnh.setTextColor(Color.WHITE);
-                        rbVietAnh.setTextColor(Color.WHITE);
+//                        rbAnhViet.setTextColor(Color.rgb(98,0,238));
+//                        rbAnhAnh.setTextColor(Color.WHITE);
+//                        rbVietAnh.setTextColor(Color.WHITE);
 
                         cachTraCuu = 0;
                         traTu(cachTraCuu);
@@ -67,9 +67,9 @@ public class TraCuuFragment extends Fragment {
                     }
                         break;
                     case R.id.radio_aa:{
-                        rbAnhAnh.setTextColor(Color.rgb(98,0,238));
-                        rbAnhViet.setTextColor(Color.WHITE);
-                        rbVietAnh.setTextColor(Color.WHITE);
+//                        rbAnhAnh.setTextColor(Color.rgb(98,0,238));
+//                        rbAnhViet.setTextColor(Color.WHITE);
+//                        rbVietAnh.setTextColor(Color.WHITE);
 
                         cachTraCuu = 1;
                         traTu(cachTraCuu);
@@ -77,9 +77,9 @@ public class TraCuuFragment extends Fragment {
                     }
                         break;
                     case R.id.radio_va:{
-                        rbVietAnh.setTextColor(Color.rgb(98,0,238));
-                        rbAnhAnh.setTextColor(Color.WHITE);
-                        rbAnhViet.setTextColor(Color.WHITE);
+//                        rbVietAnh.setTextColor(Color.rgb(98,0,238));
+//                        rbAnhAnh.setTextColor(Color.WHITE);
+//                        rbAnhViet.setTextColor(Color.WHITE);
 
                         cachTraCuu = 2;
                         traTu(cachTraCuu);

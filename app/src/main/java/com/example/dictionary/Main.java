@@ -3,10 +3,14 @@ package com.example.dictionary;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.dictionary.ChangeTheme.AppPreferenceManager;
 import com.example.dictionary.fragment.LuyenDocFragment;
 import com.example.dictionary.fragment.LuyenNgheFragment;
 import com.example.dictionary.fragment.TraCuuFragment;
@@ -27,11 +32,23 @@ public class Main extends AppCompatActivity {
     final Fragment fragmentTraCuu = new TraCuuFragment();
     final Fragment fragmentLuyenDoc = new LuyenDocFragment();
     final FragmentManager fragmentManager = getSupportFragmentManager();
-
     Fragment fragmentActive = fragmentTraCuu;
+
+
+    BottomNavigationView bottomNavigationView;
+    AppPreferenceManager preferenceManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        preferenceManager = new AppPreferenceManager(this);
+        if (preferenceManager.getDarkModeState()) {
+            setTheme(R.style.DarkTheme);
+        }else {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -39,14 +56,15 @@ public class Main extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         getSupportActionBar().setElevation(0);
 
+
         //bottom_Navigation_Menu
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
         //Load fragment TraCuu
         fragmentManager.beginTransaction().add(R.id.fragmentHienThi, fragmentLuyenDoc, "LuyenDoc").hide(fragmentLuyenDoc).commit();
         fragmentManager.beginTransaction().add(R.id.fragmentHienThi, fragmentLuyenNghe, "LuyenNghe").hide(fragmentLuyenNghe).commit();
-        fragmentManager.beginTransaction().add(R.id.fragmentHienThi,fragmentTraCuu, "TraCuu").commit();
+        fragmentManager.beginTransaction().add(R.id.fragmentHienThi, fragmentTraCuu, "TraCuu").commit();
 
     }
 
@@ -61,12 +79,17 @@ public class Main extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.action_settings:
-                return true;
+            {
+                Intent intent = new Intent(Main.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+            break;
             case R.id.action_about:
             {
                 Intent intent = new Intent(Main.this, AboutActivity.class);
                 startActivity(intent);
             }
+            break;
         }
         return super.onOptionsItemSelected(item);
     }

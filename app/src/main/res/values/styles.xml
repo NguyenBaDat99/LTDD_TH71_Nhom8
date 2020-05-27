@@ -1,16 +1,47 @@
 <resources>
 
     <!-- Base application theme. -->
+    <!-- Light/Day Mode theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundcolor">#ffffff</item>
+        <item name="cardbackground">#FFFFFF</item>
+        <item name="textcolor">#202020</item>
+        <item name="navigationbackground">@color/white</item>
+        <item name="navigationItemSelected">@drawable/nav_check_uncheck</item>
+        <item name="buttoncolor">@color/colorPrimary</item>
+        <item name="searchbackground">@drawable/bg_searchview_selector</item>
+        <item name="searchIcon">@drawable/ic_search_gray_24dp</item>
+        <item name="volumeIcon">@drawable/ic_volume_up_black_24dp</item>
+        <item name="backgroudcommon">#FF6200EE</item>
+        <item name="textcolorRadiobutton">#FF6200EE</item>
+        <item name="backgroundRadiobutton">@drawable/radio_button_right_selector</item>
+
     </style>
-    
-    <style name="SearchTextViewTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:textColor">@color/textHint</item>
+
+    <!-- Night/Dark Mode theme. -->
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#202020</item>
+        <item name="colorPrimaryDark">#101010</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundcolor">#202020</item>
+        <item name="cardbackground">@color/back</item>
+        <item name="textcolor">#E4E4E4</item>
+        <item name="navigationbackground">#989898</item>
+        <item name="navigationItemSelected">@drawable/nav_check_uncheck_darkmode</item>
+        <item name="buttoncolor">@color/colorPrimary</item>
+        <item name="searchbackground">@drawable/bg_searchview_selector_darkmode</item>
+        <item name="searchIcon">@drawable/ic_search_white_24dp</item>
+        <item name="volumeIcon">@drawable/ic_volume_up_white_24dp</item>
+        <item name="backgroudcommon">#202020</item>
+        <item name="textcolorRadiobutton">#202020</item>
+        <item name="backgroundRadiobutton">@drawable/radio_button_right_selector_darkmode</item>
     </style>
+
 
 
 </resources>

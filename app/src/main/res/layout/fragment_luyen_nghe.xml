@@ -15,7 +15,7 @@
         android:id="@+id/linearLayout_SearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="?attr/backgroudcommon"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,12 +43,11 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView_LuyenNghe"
             android:layout_width="300dp"
-            android:layout_height="55dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/bodersearch"
-            android:theme="@style/SearchTextViewTheme"
+            android:background="@drawable/bg_searchview"
             app:iconifiedByDefault="false"
             app:queryBackground="@android:color/transparent"
             app:queryHint="Tìm kiếm..."
@@ -61,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:background="#FFFFFF"
+        android:background="?attr/cardbackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="#FFFFFF"
+                android:background="?attr/cardbackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -130,9 +129,9 @@
 
         <WebView
             android:id="@+id/webView_YoutubeResult"
+            android:background="?attr/backgroudcommon"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:ignore="Suspicious0dp" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 

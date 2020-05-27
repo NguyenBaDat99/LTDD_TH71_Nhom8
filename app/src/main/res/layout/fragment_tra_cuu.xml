@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundcolor">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="?attr/backgroudcommon"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,16 +19,16 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView_TraCuu"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:background="@drawable/bodersearch"
+            android:background="?attr/searchbackground"
             android:clickable="true"
             android:focusable="true"
-            android:theme="@style/SearchTextViewTheme"
             app:iconifiedByDefault="false"
-            app:queryBackground="@android:color/transparent"
             app:queryHint="Tìm kiếm..."
-            app:searchIcon="@drawable/ic_search_gray_24dp" />
+            app:queryBackground="@android:color/transparent"
+            app:searchIcon="@drawable/ic_search_gray_24dp"
+            />
 
     </LinearLayout>
 
@@ -36,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/colorPrimary"
+        android:background="?attr/backgroudcommon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -46,12 +47,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/radio_button_left_selector"
+            android:background="?attr/backgroundRadiobutton"
+            android:textColor="?attr/backgroundRadiobutton"
             android:button="@android:color/transparent"
             android:checked="true"
             android:gravity="center"
             android:text="Anh-Việt"
-            android:textColor="@color/colorPrimary"
             android:textSize="20sp" />
 
         <RadioButton
@@ -59,11 +60,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/radio_button_center_selector"
+            android:background="?attr/backgroundRadiobutton"
+            android:textColor="?attr/backgroundRadiobutton"
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="Anh-Anh"
-            android:textColor="@color/white"
             android:textSize="20sp" />
 
         <RadioButton
@@ -71,46 +72,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/radio_button_right_selector"
+            android:background="?attr/backgroundRadiobutton"
+            android:textColor="?attr/backgroundRadiobutton"
             android:button="@android:color/transparent"
             android:gravity="center"
             android:text="Việt-Anh"
-            android:textColor="@color/white"
             android:textSize="20sp" />
     </RadioGroup>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp"
-        android:paddingBottom="135dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp"
+        android:background="?attr/cardbackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_TuVaPhienAm"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="@+id/txt_TuVaPhienAm">
 
-        <TextView
-            android:id="@+id/txt_KetQua"
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:textColor="#000000"
-            android:textSize="24sp" />
-    </ScrollView>
+            android:background="?attr/cardbackground"
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/txt_KetQua"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:text="HEllo"
+                android:textColor="?attr/textcolor"
+                android:textSize="24sp" />
+        </ScrollView>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/txt_TuVaPhienAm"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="4dp"
+        android:paddingTop="4dp"
+        android:paddingLeft="7dp"
         android:layout_marginBottom="4dp"
-        android:textColor="#000000"
+        android:textColor="?attr/textcolor"
+        android:text="HEllo Wod"
         android:textSize="26sp"
+        android:background="?attr/cardbackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,9 +140,11 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
-        android:background="@drawable/ic_volume_up_black_24dp"
+        android:background="?attr/volumeIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radio_dich" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
