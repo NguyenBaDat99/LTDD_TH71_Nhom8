@@ -53,6 +53,7 @@ public class DictionaryRequestTraCauAnhViet extends AsyncTask<String, Integer, S
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
+
         String def = "● Định nghĩa:\n";
         try {
             JSONObject js = new JSONObject(result);

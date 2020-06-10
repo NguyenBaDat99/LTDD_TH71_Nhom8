@@ -25,6 +25,8 @@ import com.example.dictionary.fragment.LuyenDocFragment;
 import com.example.dictionary.fragment.LuyenNgheFragment;
 import com.example.dictionary.fragment.TraCuuFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Main extends AppCompatActivity {
 
@@ -41,6 +43,12 @@ public class Main extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
+
+
 
         preferenceManager = new AppPreferenceManager(this);
         if (preferenceManager.getDarkModeState()) {

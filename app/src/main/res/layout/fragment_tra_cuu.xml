@@ -29,7 +29,6 @@
             app:queryBackground="@android:color/transparent"
             app:searchIcon="@drawable/ic_search_gray_24dp"
             />
-
     </LinearLayout>
 
     <RadioGroup
