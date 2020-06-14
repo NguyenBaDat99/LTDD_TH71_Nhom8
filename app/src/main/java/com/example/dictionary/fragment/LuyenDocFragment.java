@@ -1,23 +1,22 @@
 package com.example.dictionary.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import com.example.dictionary.Adapter.ItemAdapter;
+import com.example.dictionary.Adapter.ListViewAdapter;
 import com.example.dictionary.DictionaryRequest.BaiDoc;
+import com.example.dictionary.DictionaryRequest.ListItem;
 import com.example.dictionary.DictionaryRequest.QLBaiDoc;
 import com.example.dictionary.R;
 import com.google.firebase.database.ChildEventListener;
@@ -25,30 +24,40 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class LuyenDocFragment extends Fragment {
     @Nullable
 
-
+    //FireBase
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
+    QLBaiDoc ql = new QLBaiDoc();
 
+    //ListItem
+    ArrayList<String> title = new ArrayList<>();
+    ArrayList<String>  subtitle = new ArrayList<>();
+    ArrayList<Integer>  img = new ArrayList<>();
+    ArrayList<ListItem> arrayList = new ArrayList<ListItem>();
+
+
+    //Adapter
+    ItemAdapter adapter;
+    ListViewAdapter LAdapter;
 
     ListView listView;
-    QLBaiDoc ql = new QLBaiDoc();
-    ArrayList<BaiDoc> b = new ArrayList<>();
+    SearchView search;
     int i = 0;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_luyen_doc, container, false);
         //TODO: Trang Luyện đọc
         listView = view.findViewById(R.id.ListView);
+        search = view.findViewById(R.id.SearchView);
+
+
+        //Add data
 //        String a = "N-ILS4-1";
 //        String b = "Bài nghe 1 IELTS 4.0";
 //        String c = "Man: Hello, Tom Wilson’s, can I help you?\n" +
@@ -65,20 +74,59 @@ public class LuyenDocFragment extends Fragment {
 //        BaiDoc bt = new BaiDoc(e,d, a, c, b);
 //        myRef.child("BaiDoc").push().setValue(bt);
 
+//
 
 
         myRef.child("BaiDoc").addChildEventListener(new ChildEventListener() {
-
+            int i = 0;
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 BaiDoc bt = dataSnapshot.getValue(BaiDoc.class);
+                title.add(bt.TenBaiTap);
+                subtitle.add(bt.CapBac);
+                img.add(R.drawable.scroll);
 
-                b.add(bt);
-                ql.them(bt);
-                if(i == 10) {
-                    listView.addChildrenForAccessibility(item);
+                ListItem listItem = new ListItem(bt.TenBaiTap, bt.CapBac, R.drawable.scroll);
+                arrayList.add(listItem);
+
+
+                if(i == dataSnapshot.getChildrenCount())
+                {
+                    //apdater của thầy hiếu
+//                    adapter = new ItemAdapter(getActivity(), title, subtitle, img);
+//                    listView.setAdapter(adapter);
+//                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                        @Override
+//                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                            back.setEnabled(true);
+//                            Toast.makeText(getContext(), subtitle.get(position), Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+
+                    LAdapter = new ListViewAdapter(getContext(), arrayList);
+                    //truyền adapter tới listview
+                    listView.setAdapter(LAdapter);
+
+                    search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                        @Override
+                        public boolean onQueryTextSubmit(String s) {
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onQueryTextChange(String s) {
+                            if(TextUtils.isEmpty(s)){
+                                LAdapter.filter("");
+                                listView.clearTextFilter();
+                            }
+                            else
+                                LAdapter.filter(s);
+                            return true;
+                        }
+                    });
                 }
-//                Toast.makeText(getContext(), String.valueOf(ql.ql.get(0).TenBaiTap), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();
+                i += 1;
             }
 
             @Override
@@ -100,43 +148,11 @@ public class LuyenDocFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-
-
-
         });
 
+
+
         return view;
-    }
-
-    public class CustomAdapter extends BaseAdapter{
-
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(R.layout.item, null);
-
-            ImageView img = view.findViewById(R.id.imageView);
-            TextView textView = view.findViewById(R.id.textView);
-            TextView textView1 = view.findViewById(R.id.textView2);
-
-            textView.setText();
-            textView1.setText();
-            return null;
-        }
     }
 }
 

@@ -1,32 +1,20 @@
 package com.example.dictionary;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.dictionary.ChangeTheme.AppPreferenceManager;
 import com.example.dictionary.fragment.LuyenDocFragment;
 import com.example.dictionary.fragment.LuyenNgheFragment;
 import com.example.dictionary.fragment.TraCuuFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Main extends AppCompatActivity {
 

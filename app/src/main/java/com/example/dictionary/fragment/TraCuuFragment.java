@@ -1,6 +1,5 @@
 package com.example.dictionary.fragment;
 
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
