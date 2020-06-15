@@ -1,15 +1,20 @@
 package com.example.dictionary.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.dictionary.AboutActivity;
 import com.example.dictionary.DictionaryRequest.ListItem;
+import com.example.dictionary.Main;
 import com.example.dictionary.R;
+import com.example.dictionary.fragment.ItemDetail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +50,7 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(final int position, View view, ViewGroup parent) {
         ViewHolder holder;
         if (view == null)
         {
@@ -70,44 +75,15 @@ public class ListViewAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(mContext, ItemDetail.class);
+                intent.putExtra("Title", ItemList.get(position).getTitle());
+                intent.putExtra("Content", ItemList.get(position).getContent());
+                mContext.startActivity(intent);
+//                Toast.makeText(mContext, ItemList.get(position).getContent(),Toast.LENGTH_LONG).show();
             }
         });
         return view;
     }
-
-
-    public View getViewCauHoi(int position, View view, ViewGroup parent) {
-        ViewHolder holder;
-        if (view == null)
-        {
-            holder = new ViewHolder();
-            view = inflater.inflate(R.layout.item, null);
-
-            //Định vị views trong item.xml
-            holder.mTitleTv = view.findViewById(R.id.title);
-            holder.mDescTv = view.findViewById(R.id.subtitle);
-            holder.mIconIv = view.findViewById(R.id.img);
-
-            view.setTag(holder);
-        }
-        else holder = (ViewHolder) view.getTag();
-        //Gán kết quả vào textview
-        holder.mTitleTv.setText(ItemList.get(position).getTitle());
-        holder.mDescTv.setText(ItemList.get(position).getSubtitle());
-        //Gán kết quả vào img
-        holder.mIconIv.setImageResource(ItemList.get(position).getImg());
-
-        //Gắn sự kiện onClick vào các item
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        return view;
-    }
-
 
 
     public void filter (String charText){

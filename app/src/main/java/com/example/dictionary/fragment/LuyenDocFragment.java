@@ -3,6 +3,7 @@ package com.example.dictionary.fragment;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -86,11 +87,11 @@ public class LuyenDocFragment extends Fragment {
                 subtitle.add(bt.CapBac);
                 img.add(R.drawable.scroll);
 
-                ListItem listItem = new ListItem(bt.TenBaiTap, bt.CapBac, R.drawable.scroll);
+                ListItem listItem = new ListItem(bt.TenBaiTap, bt.CapBac, R.drawable.scroll, bt.NoiDung);
                 arrayList.add(listItem);
 
 
-                if(i == dataSnapshot.getChildrenCount())
+                if(i == 11)
                 {
                     //apdater của thầy hiếu
 //                    adapter = new ItemAdapter(getActivity(), title, subtitle, img);
@@ -116,8 +117,8 @@ public class LuyenDocFragment extends Fragment {
                         @Override
                         public boolean onQueryTextChange(String s) {
                             if(TextUtils.isEmpty(s)){
-                                LAdapter.filter("");
                                 listView.clearTextFilter();
+                                LAdapter.filter("");
                             }
                             else
                                 LAdapter.filter(s);

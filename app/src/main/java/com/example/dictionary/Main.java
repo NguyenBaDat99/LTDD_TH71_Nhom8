@@ -31,13 +31,6 @@ public class Main extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
-
-
-
-
         preferenceManager = new AppPreferenceManager(this);
         if (preferenceManager.getDarkModeState()) {
             setTheme(R.style.DarkTheme);

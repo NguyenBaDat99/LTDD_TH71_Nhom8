@@ -5,11 +5,17 @@ public class ListItem {
     String title;
     String subtitle;
     int img;
+    String content;
 
-    public ListItem (String title, String subtitle, int img){
+    public String getContent() {
+        return content;
+    }
+
+    public ListItem (String title, String subtitle, int img, String content){
         this.title = title;
         this.subtitle = subtitle;
         this.img = img;
+        this.content = content;
     }
 
 
