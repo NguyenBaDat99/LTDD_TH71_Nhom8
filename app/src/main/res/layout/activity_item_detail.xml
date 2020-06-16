@@ -11,18 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:padding="5dp"
         tools:context=".fragment.ItemDetail">
-
-        <TextView
-            android:id="@+id/childTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp"
-            android:textSize="26sp"
-            android:textStyle="bold" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -31,9 +21,7 @@
             <TextView
                 android:id="@+id/childContent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_height="match_parent"
                 android:textSize="20sp" />
 
         </ScrollView>

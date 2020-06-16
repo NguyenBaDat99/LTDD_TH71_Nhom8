@@ -22,10 +22,8 @@ public class ItemDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        back = findViewById(R.id.HomeMenu);
         setContentView(R.layout.activity_item_detail);
         ActionBar actionBar = getSupportActionBar();
-        TextView title = findViewById(R.id.childTitle);
         TextView content = findViewById(R.id.childContent);
 
         Intent intent = getIntent();
@@ -33,21 +31,11 @@ public class ItemDetail extends AppCompatActivity {
         String parentContent = intent.getStringExtra("Content");
 
         actionBar.setTitle(parentTitle);
-        title.setText(parentTitle);
         content.setText(parentContent);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.back, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

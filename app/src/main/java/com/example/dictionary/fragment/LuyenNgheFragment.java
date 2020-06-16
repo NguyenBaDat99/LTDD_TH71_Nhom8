@@ -19,6 +19,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 public class LuyenNgheFragment extends Fragment {
@@ -65,7 +66,7 @@ public class LuyenNgheFragment extends Fragment {
         btnBBC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToPage("bbc.co.uk/learningenglish");
+                goToPage("youtube.com/user/bbclearningenglish");
                 mLinearLayout_introBtn.setVisibility(View.GONE);
                 mWebView.setVisibility(View.VISIBLE);
             }
@@ -82,6 +83,7 @@ public class LuyenNgheFragment extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mWebView.goBack();
             }
         });
@@ -91,6 +93,8 @@ public class LuyenNgheFragment extends Fragment {
             public void onClick(View v) {
                 mWebView.setVisibility(View.GONE);
                 mLinearLayout_introBtn.setVisibility(View.VISIBLE);
+                mWebView.loadUrl("about:blank");
+                mWebView.clearHistory();
             }
         });
 

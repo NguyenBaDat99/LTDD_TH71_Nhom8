@@ -3,10 +3,8 @@ package com.example.dictionary.fragment;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +16,6 @@ import com.example.dictionary.Adapter.ItemAdapter;
 import com.example.dictionary.Adapter.ListViewAdapter;
 import com.example.dictionary.DictionaryRequest.BaiDoc;
 import com.example.dictionary.DictionaryRequest.ListItem;
-import com.example.dictionary.DictionaryRequest.QLBaiDoc;
 import com.example.dictionary.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +31,6 @@ public class LuyenDocFragment extends Fragment {
     //FireBase
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
-    QLBaiDoc ql = new QLBaiDoc();
 
     //ListItem
     ArrayList<String> title = new ArrayList<>();
@@ -53,33 +49,13 @@ public class LuyenDocFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_luyen_doc, container, false);
-        //TODO: Trang Luyện đọc
+
         listView = view.findViewById(R.id.ListView);
         search = view.findViewById(R.id.SearchView);
 
 
-        //Add data
-//        String a = "N-ILS4-1";
-//        String b = "Bài nghe 1 IELTS 4.0";
-//        String c = "Man: Hello, Tom Wilson’s, can I help you?\n" +
-//                "Woman: Hi there, it’s Emma Lloyd here. I’m calling about my motorbike. Is it ready to be collected yet?\n" +
-//                "Man: Can you remind me, what’s the make of the bike?\n" +
-//                "Woman: It’s a City Zip. It’s blue.\n" +
-//                "Man: Oh yes. We had to order in some parts, but they still haven’t arrived yet I’m afraid.\n" +
-//                "Woman: Do you know when the bike will be ready to pick up?\n" +
-//                "Man: Sorry, I don’t know. But I’ll call our suppliers and find out if they’ve sent out the spare parts yet. Once the parts are here we can fix the bike in two or three days.\n" +
-//                "Woman: Okay, I’ll give you a call at the end of the week, then.\n" +
-//                "Man: Sure.";
-//        String d = "N-ILS4";
-//        String e = "IELTS 4.0";
-//        BaiDoc bt = new BaiDoc(e,d, a, c, b);
-//        myRef.child("BaiDoc").push().setValue(bt);
-
-//
-
-
         myRef.child("BaiDoc").addChildEventListener(new ChildEventListener() {
-            int i = 0;
+            int i = 1;
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 BaiDoc bt = dataSnapshot.getValue(BaiDoc.class);
@@ -91,8 +67,6 @@ public class LuyenDocFragment extends Fragment {
                 arrayList.add(listItem);
 
 
-                if(i == 11)
-                {
                     //apdater của thầy hiếu
 //                    adapter = new ItemAdapter(getActivity(), title, subtitle, img);
 //                    listView.setAdapter(adapter);
@@ -125,9 +99,6 @@ public class LuyenDocFragment extends Fragment {
                             return true;
                         }
                     });
-                }
-//                Toast.makeText(getContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();
-                i += 1;
             }
 
             @Override

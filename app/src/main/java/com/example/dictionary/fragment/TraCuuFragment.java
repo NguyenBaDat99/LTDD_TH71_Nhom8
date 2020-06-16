@@ -51,26 +51,38 @@ public class TraCuuFragment extends Fragment {
         rbAnhAnh = view.findViewById(R.id.radio_aa);
         rbVietAnh = view.findViewById(R.id.radio_va);
 
+        searchView = view.findViewById(R.id.searchView_TraCuu);
+
         radioCachTraCuu = view .findViewById(R.id.radio_dich);
         radioCachTraCuu.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch(checkedId) {
                     case R.id.radio_av:{
-
+                        if(cachTraCuu == 2){
+                            searchView.setQuery("", false);
+                            txtKetQua.setText("");
+                            txtTuVaPhienAm.setText("");
+                        }
                         cachTraCuu = 0;
                         traTu(cachTraCuu);
                         btnPlay.setVisibility(View.VISIBLE);
                     }
                         break;
                     case R.id.radio_aa:{
-
+                        if(cachTraCuu == 2){
+                            searchView.setQuery("", false);
+                            txtKetQua.setText("");
+                            txtTuVaPhienAm.setText("");
+                        }
                         cachTraCuu = 1;
                         traTu(cachTraCuu);
                         btnPlay.setVisibility(View.VISIBLE);
                     }
                         break;
                     case R.id.radio_va:{
-
+                        searchView.setQuery("", false);
+                        txtKetQua.setText("");
+                        txtTuVaPhienAm.setText("");
                         cachTraCuu = 2;
                         traTu(cachTraCuu);
                         btnPlay.setVisibility(View.GONE);
@@ -79,7 +91,7 @@ public class TraCuuFragment extends Fragment {
             }
         });
 
-        searchView = view.findViewById(R.id.searchView_TraCuu);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
