@@ -7,12 +7,58 @@
     tools:context=".AboutActivity"
     android:background="?attr/backgroundcolor">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout_logo_tagline"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="?attr/textcolor"
-        android:textSize="30sp"
-        android:text="Hello About"
-        android:layout_centerHorizontal="true"/>
+        android:background="?attr/backgroundcolor"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:layout_width="111dp"
+            android:layout_height="123dp"
+            android:src="@drawable/leng_logo"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:text="Welcome to LEnglish"
+            android:textColor="?attr/textcolor"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundcolor"
+        android:padding="15dp"
+        android:orientation="vertical"
+        android:layout_below="@id/linearLayout_logo_tagline">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/backgroundcolor">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:textSize="20sp"
+                android:textColor="?attr/textcolor"
+                android:text="@string/text_about"
+                />
+
+        </ScrollView>
+    </LinearLayout>
 
 </RelativeLayout>
+
+
+

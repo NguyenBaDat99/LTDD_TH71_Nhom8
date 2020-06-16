@@ -9,4 +9,27 @@
         <item>Anh-Anh</item>
         <item>Việt-Anh</item>
     </string-array>
+    <string name="text_about">
+        LEnglish là một ứng dụng học tập thông qua việc giúp người dùng cải thiện kĩ năng ngôn ngữ của mình,
+        song với giao diện thân thiện, gần gũi tạo ra nhiều trải nghiệm mới mẻ, ứng dụng gồm 3 chức năng chính:
+        Tra cứu, Luyện đọc, Luyện Nghe.\n\n
+        ● Tra cứu: Dịch(giải thích) những từ không hiểu hoặc muốn biết thêm nghĩa của từ do người dùng nhập vào, với 3 chế độ dịch khác nhau: Anh- Việt, Anh - Anh, Việt - Anh.
+        \n\n
+        ● Luyện đọc: Bao gồm nhiều bài viết với nhiều cấp độ IELTS, Mover, Starter, TOEIC cho người dùng lựa chọn. Mỗi đọc sẽ giúp người dùng cải thiện kĩ năng đọc hiểu song với từ ngữ từ dễ đến khó tương ứng với cấp dộ người dùng chọn.
+        \n\n
+        ● Luyện nghe: Gần giống với chức năng Tra cứu đều cho người dùng nhập từ khóa nhưng kết quả là hiện ra những video, giúp người dùng nghe và thấy được cách phát âm của từ họ cần tìm kiếm. Ngoài ra Luyện nghe còn có 3 trang web gợi ý TED, BBC Learning, Youtube giúp cải thiện kĩ năng nghe cho người dùng.
+        \n\n\n
+        Dữ liệu được hỗ trợ bởi:\n
+        + API Oxford Dictionary: https://developer.oxforddictionaries.com/ \n
+        + API Tra Câu: https://tracau.vn/pages/api.html \n
+        + FireBase \n
+        \n
+        Nhóm phát triển: Nhóm 8
+        \n\n
+        \t\t1751010022dat@ou.edu.vn\n
+        \t\t1751010026dong@ou.edu.vn\n
+        \t\t1751010090minh@ou.edu.vn\n
+        \t\t1751010054hung@ou.edu.vn\n
+        \t\t1751010083minh@ou.edu.vn\n
+    </string>
 </resources>

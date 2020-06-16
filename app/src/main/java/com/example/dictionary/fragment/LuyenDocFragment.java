@@ -61,9 +61,9 @@ public class LuyenDocFragment extends Fragment {
                 BaiDoc bt = dataSnapshot.getValue(BaiDoc.class);
                 title.add(bt.TenBaiTap);
                 subtitle.add(bt.CapBac);
-                img.add(R.drawable.scroll);
+                img.add(R.drawable.book);
 
-                ListItem listItem = new ListItem(bt.TenBaiTap, bt.CapBac, R.drawable.scroll, bt.NoiDung);
+                ListItem listItem = new ListItem(bt.TenBaiTap, bt.CapBac, R.drawable.book, bt.NoiDung);
                 arrayList.add(listItem);
 
 

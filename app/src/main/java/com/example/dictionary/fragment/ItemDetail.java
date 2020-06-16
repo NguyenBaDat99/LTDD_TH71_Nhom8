@@ -12,14 +12,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.dictionary.ChangeTheme.AppPreferenceManager;
 import com.example.dictionary.R;
 
 public class ItemDetail extends AppCompatActivity {
+
+    AppPreferenceManager preferenceManager;
 
     MenuItem back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        preferenceManager = new AppPreferenceManager( this);
+        if (preferenceManager.getDarkModeState()) {
+            setTheme(R.style.DarkTheme);
+        }else {
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_item_detail);
