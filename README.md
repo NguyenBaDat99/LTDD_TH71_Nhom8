@@ -19,8 +19,8 @@
 ## Phân công công việc:
  - Tạo cơ sở dữ liệu FireBase: Nhật Minh
  - Tạo Menu Setting:
-   + Menu bottom navigation (gồm 3 item):
-   + Menu hiển thị trên thanh Toolbar (gồm 2 item):
+   + Menu bottom navigation (gồm 3 item Tra cứu, Luyện đọc, Luyện nghe):
+   + Menu hiển thị trên thanh Toolbar (gồm 2 item Cài đặt, Giới thiệu):
   ##### Giao diện chính gồm 3 Fragment:
   + Fragment Tra cứu (Giao diện, chức năng tìm kiếm và hiển thị kết quả cần tìm):
   + Fragment Luyện đọc (Giao diện, tạo danh sách bài đọc, hiển thị chi tiết bài đọc được chọn):
