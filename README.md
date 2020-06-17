@@ -21,11 +21,26 @@
  - Tạo Menu Setting:
    + Menu bottom navigation (gồm 3 item Tra cứu, Luyện đọc, Luyện nghe):
    + Menu hiển thị trên thanh Toolbar (gồm 2 item Cài đặt, Giới thiệu):
-  ##### Giao diện chính gồm 3 Fragment:
-  + Fragment Tra cứu (Giao diện, chức năng tìm kiếm và hiển thị kết quả cần tìm):
-  + Fragment Luyện đọc (Giao diện, tạo danh sách bài đọc, hiển thị chi tiết bài đọc được chọn):
-  + Fragment Luyện nghe (Giao diện, chức năng tìm kiếm, hiển thị kết quả tìm kiếm, tạo webview):
-  ##### Giao diện phụ gồm 2 Activity:
+ ### Giao diện chính gồm 3 Fragment:
+  #### Fragment Tra cứu 
+  - Thiết kế giao diện: 
+  - Xử lý chức năng tìm kiếm gồm 3 chế độ:
+    + Anh - Việt (lấy API từ Tra câu):
+    + Anh - Anh (lấy API từ Oxford):
+    + Việt - Anh (lấy API từ Tra câu):
+  - Phiên âm, audio từ tìm kiếm (hiển thị ở Anh - Việt, Anh - Anh lấy API từ Oxford):
+  #### Fragment Luyện đọc 
+  - Thiết kế giao diện:
+  - Xử lý chức năng tìm kiếm theo tiêu đề mỗi bài đọc:
+  - Tạo danh sách bài đọc (lấy dữ liệu từ FireBase):
+  - Xử lý chức năng hiển thị chi tiết bài đọc được chọn:
+  #### Fragment Luyện nghe 
+  - Thiết kế giao diện: 
+  - Xử lý chức năng tìm kiếm theo (từng từ, địa chỉ đường dẫn):
+  - Hiển thị kết quả tìm kiếm:
+    + Từng từ (Xuất ra những video liên quan đến từ cần tìm):
+    + Địa chỉ đường dẫn (Dẫn tới địa chỉ theo đúng đường dẫn):
+ ### Giao diện phụ gồm 2 Activity:
   + Activity Cài đặt (Giao diện, xử lý chế độ DarkMode):
   + Activity Giới thiệu (Giao diện):
 ## Hướng dẫn sử dụng:
