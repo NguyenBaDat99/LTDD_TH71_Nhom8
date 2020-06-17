@@ -19,7 +19,7 @@
             android:layout_marginTop="15dp"
             android:layout_width="111dp"
             android:layout_height="123dp"
-            android:src="@drawable/leng_logo"
+            android:src="@drawable/dictionary"
             android:layout_gravity="center"/>
 
         <TextView

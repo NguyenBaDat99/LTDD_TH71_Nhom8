@@ -34,8 +34,8 @@ public class DictionaryRequestOxford extends AsyncTask<String, Integer, String> 
     protected String doInBackground(String... params) {
 
         // replace with your own app id and app key
-        final String app_id = "9ec1a302";
-        final String app_key = "9f2bfe3b032ed2b3fcd9dc7d8b227fd3";
+        final String app_id = "67ef9b80";
+        final String app_key = "9288df6e24311d8cf073b1f5d7042334";
         try {
             URL url = new URL(params[0]);
             HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +30,7 @@ public class LuyenDocFragment extends Fragment {
     @Nullable
 
     //FireBase
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
 
     //ListItem
@@ -55,7 +56,6 @@ public class LuyenDocFragment extends Fragment {
 
 
         myRef.child("BaiDoc").addChildEventListener(new ChildEventListener() {
-            int i = 1;
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 BaiDoc bt = dataSnapshot.getValue(BaiDoc.class);
@@ -63,9 +63,9 @@ public class LuyenDocFragment extends Fragment {
                 subtitle.add(bt.CapBac);
                 img.add(R.drawable.book);
 
+
                 ListItem listItem = new ListItem(bt.TenBaiTap, bt.CapBac, R.drawable.book, bt.NoiDung);
                 arrayList.add(listItem);
-
 
                     //apdater của thầy hiếu
 //                    adapter = new ItemAdapter(getActivity(), title, subtitle, img);
@@ -90,12 +90,12 @@ public class LuyenDocFragment extends Fragment {
 
                         @Override
                         public boolean onQueryTextChange(String s) {
-                            if(TextUtils.isEmpty(s)){
+                            if (TextUtils.isEmpty(s)) {
                                 listView.clearTextFilter();
                                 LAdapter.filter("");
-                            }
-                            else
+                            } else {
                                 LAdapter.filter(s);
+                            }
                             return true;
                         }
                     });

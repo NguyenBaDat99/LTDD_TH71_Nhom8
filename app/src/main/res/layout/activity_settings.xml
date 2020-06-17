@@ -25,18 +25,13 @@
             android:padding="10dp">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="?attr/textcolor"
-                android:text="Change Mode Theme"
-                android:textStyle="bold"/>
             <Switch
                 android:id="@+id/switch_changemode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Dark Mode"
+                android:text="Chế độ tối"
+                android:textStyle="bold"
                 android:textColor="?attr/textcolor"/>
 
         </LinearLayout>
