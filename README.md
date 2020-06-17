@@ -22,11 +22,11 @@
  - Tạo project Android Studio: Bá Đạt
  - Xử lý trang luyện nghe, luyện đọc, tra từ: Bá Đạt, Quý Đông, Nhật Minh
 ### Front-end:
-  - Giao diện chính gồm 3 trang:
+  ###### Giao diện chính gồm 3 trang:
    + Tra cứu: Đạt, Đông
    + Luyện đọc: Nhật Minh
    + Luyện nghe: Đạt    
-  - Giao diện phụ gồm:
+  ###### Giao diện phụ gồm:
    + Cài đặt: Đông
    + Giới thiệu: Đông
 ## Hướng dẫn sử dụng:
